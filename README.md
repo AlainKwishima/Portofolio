@@ -1,18 +1,4 @@
-# ✨ Personal Portfolio — Showcasing My Work & Skills
 
-![Portfolio Banner](https://imgur.com/J4YkCks.png)
-
-Welcome to my personal portfolio! This website is a reflection of my journey, skills, and projects in the world of DevOps, cloud, and tech content creation.
-
----
-
-## 🔗 Live Website  
-
-👉 [Visit my portfolio](https://notharshhaa.site)
-
----
-
-## 🚀 Performance Optimizations
 
 This portfolio has been optimized for:
 
