@@ -40,7 +40,7 @@ export function Header() {
                   className="rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300"
                 />
               </motion.div>
-              <span className="font-bold text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">HARSHHAA</span>
+              <span className="font-bold text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">ALAIN KWISHIMA</span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-2">
