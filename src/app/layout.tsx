@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 const metadata = {
-  title: 'Portfolio | HARSHHAA',
+  title: 'Portfolio | ALAIN',
   description: 'My Personal Portfolio - Showcasing my Work and Skills.'
 }
 
