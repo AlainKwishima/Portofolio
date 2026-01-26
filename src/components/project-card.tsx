@@ -106,7 +106,7 @@ export function ProjectCard({ projects }: { projects: ProjectProps[] }) {
                 {link.preview && (
                   <Button
                     variant='default'
-                    size={null}
+                    size="sm"
                     className='px-4 py-2 rounded-lg shadow-md transition-all duration-300 bg-primary text-white dark:text-black hover:scale-105 hover:shadow-lg hover:bg-primary/90 dark:hover:bg-primary/80 font-semibold flex items-center gap-2'
                     asChild
                   >
@@ -124,7 +124,7 @@ export function ProjectCard({ projects }: { projects: ProjectProps[] }) {
                 {link.github && (
                   <Button
                     variant='default'
-                    size={null}
+                    size="sm"
                     className='px-4 py-2 rounded-lg shadow-md transition-all duration-300 bg-neutral-900 text-white dark:bg-neutral-100 dark:text-black hover:scale-105 hover:shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-200 font-semibold flex items-center gap-2'
                     asChild
                   >

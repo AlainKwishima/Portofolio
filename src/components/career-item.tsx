@@ -28,7 +28,7 @@ export function CareerItem({ link, company, jobs, badges }: CareerProps) {
       {/* Glassy Card Effect */}
       <div className="bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl rounded-2xl shadow-lg border border-border/40 px-6 py-6">
         {/* Company Name & Badge */}
-        <div className="flex gap-x-3 mb-4 items-center">
+        <div className="flex flex-col md:flex-row md:items-center gap-3 mb-4">
           <motion.h3
             className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent drop-shadow"
             initial={{ opacity: 0, x: -10 }}
@@ -38,18 +38,23 @@ export function CareerItem({ link, company, jobs, badges }: CareerProps) {
           >
             {company}
           </motion.h3>
-          <motion.div
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-          >
-            <Badge
-              variant="secondary"
-              className="rounded-full shadow bg-primary/10 text-primary font-semibold px-3 py-1 text-xs border border-primary/20 backdrop-blur"
-            >
-              {badges}
-            </Badge>
-          </motion.div>
+          <div className="flex flex-wrap gap-2">
+            {badges.map((badge) => (
+              <motion.div
+                key={badge}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              >
+                <Badge
+                  variant="secondary"
+                  className="rounded-full shadow bg-primary/10 text-primary font-semibold px-3 py-1 text-xs border border-primary/20 backdrop-blur"
+                >
+                  {badge}
+                </Badge>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Job Roles */}
@@ -85,7 +90,7 @@ export function CareerItem({ link, company, jobs, badges }: CareerProps) {
           >
             <Button
               variant="default"
-              size={null}
+              size="sm"
               className="group shadow-md px-5 py-2 rounded-full bg-primary text-white dark:text-black hover:bg-primary/90 dark:hover:bg-primary/80 font-semibold flex items-center gap-2 transition-all duration-300"
               asChild
             >

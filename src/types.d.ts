@@ -53,3 +53,12 @@ export interface ProjectProps {
   image?: string
   video?: string
 }
+
+export interface BlogPost {
+  title: string
+  date: string
+  category: string
+  description: string
+  readTime: string
+  content: string[]
+}

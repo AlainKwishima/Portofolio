@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Alain Kwishima | Full-Stack Developer & DevOps Engineer',
-  description: 'Experienced full-stack developer and DevOps engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure. Building scalable solutions that drive business growth.',
-  keywords: ['Full-Stack Developer', 'DevOps Engineer', 'Web Development', 'Mobile Development', 'AI Integration', 'Cloud Infrastructure', 'AWS', 'Azure', 'Kubernetes', 'Terraform', 'React', 'Node.js', 'Portfolio'],
+  title: 'Alain Kwishima | Full-Stack Developer & ML Engineer',
+  description: 'Experienced full-stack developer and ML engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure. Building scalable solutions that drive business growth.',
+  keywords: ['Full-Stack Developer', 'ML Engineer', 'Web Development', 'Mobile Development', 'AI Integration', 'Cloud Infrastructure', 'AWS', 'Azure', 'Kubernetes', 'Terraform', 'React', 'Node.js', 'Portfolio'],
   authors: [{ name: 'Alain Kwishima' }],
   creator: 'Alain Kwishima',
   publisher: 'Alain Kwishima',
@@ -12,21 +12,21 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://notharshhaa.site'),
+  metadataBase: new URL('https://alain-kwishima.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Alain Kwishima | Full-Stack Developer & DevOps Engineer',
-    description: 'Experienced full-stack developer and DevOps engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure. Building scalable solutions that drive business growth.',
-    url: 'https://notharshhaa.site',
+    title: 'Alain Kwishima | Full-Stack Developer & ML Engineer',
+    description: 'Experienced full-stack developer and ML engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure. Building scalable solutions that drive business growth.',
+    url: 'https://alain-kwishima.vercel.app',
     siteName: 'Alain Kwishima Portfolio',
     images: [
       {
         url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: 'Alain Kwishima - Full-Stack Developer & DevOps Engineer',
+        alt: 'Alain Kwishima - Full-Stack Developer & ML Engineer',
       },
     ],
     locale: 'en_US',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alain Kwishima | Full-Stack Developer & DevOps Engineer',
-    description: 'Experienced full-stack developer and DevOps engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure.',
+    title: 'Alain Kwishima | Full-Stack Developer & ML Engineer',
+    description: 'Experienced full-stack developer and ML engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure.',
     images: ['/opengraph-image.png'],
   },
   robots: {
