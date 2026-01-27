@@ -363,7 +363,7 @@ const PROJECTS = [
     description: 'A comprehensive platform for discovering AI tools, mastering automation, and joining a community of AI builders. Helps create intelligent workflows, encourages hands-on learning, and supports both no-code and advanced AI development with interactive tutorials and real-world examples.',
     link: {
       github: 'https://github.com/AlainKwishima/ai-automation-hub',
-      preview: 'https://ai-automation-hub.vercel.app'
+      preview: 'https://ai-automation-hub-eight.vercel.app'
     },
   },
   {
@@ -379,8 +379,8 @@ const PROJECTS = [
     tags: [TAGS.TYPESCRIPT, TAGS.NEXTJS, TAGS.TAILWIND, TAGS.PRISMA, TAGS.CSS3, TAGS.JAVASCRIPT],
     description: 'A modern, responsive job board built with Next.js focusing on DevOps, SRE, and Cloud roles. Features smart filtering, user authentication, elegant UI design with Tailwind CSS, and robust database management with Prisma ORM for seamless job search and application experience.',
     link: {
-      github: 'https://github.com/NotHarshha/JobsPortal.Tech',
-      preview: 'https://jobsportal.tech'
+      github: 'https://github.com/NotHarshha/JobsPortal.Tech-',
+      preview: 'https://jobs-portal-tech.vercel.app/'
     },
   }
 ];
