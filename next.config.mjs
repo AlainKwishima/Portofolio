@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin('./src/i18n.ts')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -28,4 +32,4 @@ if (process.env.ANALYZE === 'true') {
   withBundleAnalyzer = bundleAnalyzer.default({ enabled: true })
 }
 
-export default withBundleAnalyzer(nextConfig)
+export default withNextIntl(withBundleAnalyzer(nextConfig))

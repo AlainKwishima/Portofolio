@@ -29,6 +29,7 @@ export interface JobsProps {
 }
 
 export interface CareerProps {
+  slug?: string
   company: string
   link?: string
   badges: string[]
@@ -46,15 +47,18 @@ export interface ProjectLinkProps {
 }
 
 export interface ProjectProps {
+  slug?: string
   title: string
   tags: TagsProps[]
   description: string
   link: ProjectLinkProps
   image?: string
   video?: string
+  lastUpdated?: string
 }
 
 export interface BlogPost {
+  slug?: string
   title: string
   date: string
   category: string

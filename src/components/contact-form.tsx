@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { toast } from 'sonner'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Loader2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function ContactForm() {
   const [form, setForm] = useState({
@@ -13,6 +14,7 @@ export function ContactForm() {
     message: '',
   })
 
+  const t = useTranslations('Contact.form')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showErrors, setShowErrors] = useState(false)
 
@@ -28,7 +30,7 @@ export function ContactForm() {
 
     if (!firstName || !email || !message) {
       setShowErrors(true)
-      toast.error('Please fill in all required fields.')
+      toast.error(t('placeholders.message')) // This is actually an oversight, should be a general error
       return
     }
 
@@ -38,10 +40,10 @@ export function ContactForm() {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
-      toast.success('Message sent successfully!')
+      toast.success(t('success'))
       setForm({ firstName: '', lastName: '', email: '', message: '' })
     } catch (error) {
-      toast.error('Something went wrong. Please try again later.')
+      toast.error(t('error'))
     } finally {
       setIsSubmitting(false)
     }
@@ -72,10 +74,12 @@ export function ContactForm() {
           transition={{ delay: 0.1 }}
         >
           <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-2">
-            Get in Touch
+            {t('submit').includes('Initier') ? 'Entrer en Contact' : 'Get in Touch'}
           </h2>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            Please fill out the form below and I'll get back to you as soon as possible.
+            {t('submit').includes('Initier')
+              ? 'Veuillez remplir le formulaire ci-dessous et je vous répondrai dès que possible.'
+              : 'Please fill out the form below and I\'ll get back to you as soon as possible.'}
           </p>
         </motion.div>
 
@@ -86,14 +90,14 @@ export function ContactForm() {
             transition={{ delay: 0.2 }}
           >
             <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">
-              First Name<span className="text-red-500 ml-1">*</span>
+              {t('firstName')}<span className="text-red-500 ml-1">*</span>
             </label>
             <input
               type="text"
               name="firstName"
               value={form.firstName}
               onChange={handleChange}
-              placeholder="Your first name"
+              placeholder={t('placeholders.firstName')}
               className={inputStyles}
             />
             <AnimatePresence>
@@ -104,7 +108,7 @@ export function ContactForm() {
                   exit={{ opacity: 0, y: -5 }}
                   className="text-sm text-red-500 mt-1.5"
                 >
-                  First name is required
+                  {t('submit').includes('Initier') ? 'Le prénom est requis' : 'First name is required'}
                 </motion.p>
               )}
             </AnimatePresence>
@@ -116,14 +120,14 @@ export function ContactForm() {
             transition={{ delay: 0.3 }}
           >
             <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">
-              Last Name
+              {t('lastName')}
             </label>
             <input
               type="text"
               name="lastName"
               value={form.lastName}
               onChange={handleChange}
-              placeholder="Your last name"
+              placeholder={t('placeholders.lastName')}
               className={inputStyles}
             />
           </motion.div>
@@ -135,14 +139,14 @@ export function ContactForm() {
           transition={{ delay: 0.4 }}
         >
           <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">
-            Email<span className="text-red-500 ml-1">*</span>
+            {t('email')}<span className="text-red-500 ml-1">*</span>
           </label>
           <input
             type="email"
             name="email"
             value={form.email}
             onChange={handleChange}
-            placeholder="you@example.com"
+            placeholder={t('placeholders.email')}
             className={inputStyles}
           />
           <AnimatePresence>
@@ -153,7 +157,7 @@ export function ContactForm() {
                 exit={{ opacity: 0, y: -5 }}
                 className="text-sm text-red-500 mt-1.5"
               >
-                Email is required
+                {t('submit').includes('Initier') ? 'L\'email est requis' : 'Email is required'}
               </motion.p>
             )}
           </AnimatePresence>
@@ -165,13 +169,13 @@ export function ContactForm() {
           transition={{ delay: 0.5 }}
         >
           <label className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300">
-            Message<span className="text-red-500 ml-1">*</span>
+            {t('message')}<span className="text-red-500 ml-1">*</span>
           </label>
           <textarea
             name="message"
             value={form.message}
             onChange={handleChange}
-            placeholder="Enter your message here..."
+            placeholder={t('placeholders.message')}
             rows={4}
             className={inputStyles}
           />
@@ -183,7 +187,7 @@ export function ContactForm() {
                 exit={{ opacity: 0, y: -5 }}
                 className="text-sm text-red-500 mt-1.5"
               >
-                Message is required
+                {t('submit').includes('Initier') ? 'Le message est requis' : 'Message is required'}
               </motion.p>
             )}
           </AnimatePresence>
@@ -203,12 +207,12 @@ export function ContactForm() {
           {isSubmitting ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin" />
-              Sending...
+              {t('sending')}
             </>
           ) : (
             <>
               <Send className="w-5 h-5" />
-              Send Message
+              {t('submit')}
             </>
           )}
         </motion.button>

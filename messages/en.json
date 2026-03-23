@@ -1,0 +1,185 @@
+{
+    "Common": {
+        "title": "Portfolio | ALAIN",
+        "nav": {
+            "home": "Home",
+            "career": "Career",
+            "projects": "Projects",
+            "skills": "Skills",
+            "blog": "Blog",
+            "contact": "Contact"
+        }
+    },
+    "Hero": {
+        "title": "Alain Kwishima | Full-Stack Developer & ML Engineer",
+        "role": "Full-Stack Developer & DevOps Engineer | Building Scalable Solutions That Drive Business Growth",
+        "description": "I design and build robust web applications, mobile solutions, and intelligent systems that solve real-world problems. With expertise spanning frontend development, backend architecture, mobile app creation, AI integration, and cloud infrastructure, I deliver end-to-end solutions that scale. I specialize in modern web technologies, cross-platform mobile development, machine learning applications, and automated DevOps pipelines. My passion lies in creating efficient, maintainable code and implementing cutting-edge technologies that enhance user experiences and business outcomes.",
+        "status": "Available",
+        "cta": "View Work"
+    },
+    "Career": {
+        "title": "Professional Journey",
+        "items": {
+            "freelance": {
+                "title": "Full-Stack Developer & Technical Consultant",
+                "description": [
+                    "Delivered end-to-end solutions for diverse clients across web development, mobile applications, and AI integration projects.",
+                    "Built scalable web applications using modern frameworks including Next.js, React, and Node.js with TypeScript.",
+                    "Developed mobile applications and backend APIs, implementing secure authentication and robust data validation.",
+                    "Created AI-powered platforms and automation tools, helping businesses streamline operations and improve efficiency.",
+                    "Contributed to open-source projects and maintained active GitHub presence with 50+ repositories and 1000+ contributions."
+                ]
+            },
+            "empirical": {
+                "title": "Frontend Lead Engineer",
+                "description": [
+                    "Led frontend development efforts for a fast-growing startup, building responsive and performant user interfaces.",
+                    "Architected and implemented reusable UI component libraries using TypeScript and modern CSS frameworks.",
+                    "Optimized application performance, achieving 40% faster load times and improved user experience metrics.",
+                    "Collaborated closely with backend and product teams to deliver seamless full-stack solutions.",
+                    "Mentored junior developers and established coding standards and best practices for the engineering team."
+                ]
+            },
+            "acgroup": {
+                "title": "Software Development Intern",
+                "description": [
+                    "Gained hands-on experience with real-world software development challenges and industry best practices.",
+                    "Worked on multiple projects spanning web development, database design, and API integration.",
+                    "Built strong fundamentals in software engineering, version control, and collaborative development workflows.",
+                    "Participated in code reviews, testing procedures, and agile development methodologies.",
+                    "Developed problem-solving skills and learned to work effectively in a professional development environment."
+                ]
+            },
+            "rca": {
+                "title": "Software Engineering Candidate",
+                "description": [
+                    "Selected among the top 1% of students nationwide for an elite, specialized software engineering program initiated by the Government of Rwanda.",
+                    "Intensive focus on modern software development stacks, including full-stack web development, DevOps automation, and embedded systems.",
+                    "Built production-grade applications as part of the curriculum, mastering collaborative development via Git and Agile methodologies.",
+                    "Strong emphasis on problem-solving, algorithms, and cybersecurity fundamentals in a project-based learning environment."
+                ]
+            }
+        }
+    },
+    "Projects": {
+        "title": "Featured Projects",
+        "searchPlaceholder": "Search projects...",
+        "noResults": "System Search: 0 Results",
+        "reset": "Reset Search Database",
+        "fetching": "Fetching Intelligence...",
+        "items": {
+            "securetrade": {
+                "title": "SecureTrade",
+                "description": "A secure, modern web application for trading digital assets with a focus on privacy, speed, and reliability. Features real-time market data, secure authentication, and intuitive user interface designed for both beginners and experienced traders."
+            },
+            "tacticalcommand": {
+                "title": "Tactical Command Hub",
+                "description": "A next-generation web platform designed as a centralized mission control system for coordinating operations, managing resources, and monitoring intelligence workflows in real-time. Built with modern web technologies for high-performance data visualization and management."
+            },
+            "aihub": {
+                "title": "AI & Automation Hub",
+                "description": "A comprehensive platform for discovering AI tools, mastering automation, and joining a community of AI builders. Helps create intelligent workflows, encourages hands-on learning, and supports both no-code and advanced AI development with interactive tutorials and real-world examples."
+            },
+            "dovio": {
+                "title": "Dovio-Backend",
+                "description": "Robust backend API for the Durkheim mobile application built with Node.js and Express. Features secure JWT authentication, comprehensive data validation with Joi, security middleware with Helmet, request logging with Morgan, and environment configuration management."
+            },
+            "jobsportal": {
+                "title": "JobsPortal.Tech",
+                "description": "A modern, responsive job board built with Next.js focusing on DevOps, SRE, and Cloud roles. Features smart filtering, user authentication, elegant UI design with Tailwind CSS, and robust database management with Prisma ORM for seamless job search and application experience."
+            }
+        }
+    },
+    "Skills": {
+        "title": "Elite Stack",
+        "subtitle": "Technical Arsenal",
+        "categories": {
+            "languages": "Languages",
+            "frontend": "Frontend Architecture",
+            "backend": "Backend & APIs",
+            "infrastructure": "Infrastructure & DevOps",
+            "databases": "Databases & Auth",
+            "qa": "Quality Assurance",
+            "ai": "AI & IoT",
+            "soft": "Soft Power"
+        }
+    },
+    "Blog": {
+        "title": "Intelligence Feed",
+        "subtitle": "Deep dives into modern software architecture, AI agents, and high-fidelity product design.",
+        "readTime": "{time} min read",
+        "readAbstract": "Read Abstract",
+        "cta": {
+            "title": "Want more insights?",
+            "subtitle": "\"The best way to predict the future is to automate it.\"",
+            "button": "Follow for Updates"
+        },
+        "modal": {
+            "discuss": "Discuss on X",
+            "footer": "Found this insightful? Share your thoughts on X."
+        },
+        "items": {
+            "ml2026": {
+                "title": "The Future of Machine Learning in 2026",
+                "category": "Machine Learning",
+                "description": "Exploring the shift from large language models to specialized agentic architectures.",
+                "content": [
+                    "As we move into 2026, the landscape of Artificial Intelligence is undergoing a fundamental shift. While 2023-2025 focused on the raw power of Large Language Models (LLMs), the current era is defined by Agency and Efficiency.",
+                    "We are seeing a move away from \"chatbots\" towards \"agents\"—systems that don't just talk, but act. These agents use specialized, smaller models that are fine-tuned for specific tasks like code generation, system architecture, or logical reasoning.",
+                    "One of the biggest breakthroughs has been in Edge AI. Models that once required massive GPU clusters can now run locally on specialized NPU (Neural Processing Unit) chips. This provides unprecedented privacy, lower latency, and offline capabilities.",
+                    "For developers, this means the focus is shifting from prompt engineering to agentic orchestration—designing systems where multiple specialized models cooperate to solve complex problems autonomously.",
+                    "The focus is no longer just on what AI can say, but what it can do efficiently and ethically in our daily workflows."
+                ]
+            },
+            "devops-pulumi": {
+                "title": "Modern DevOps: Infrastructure as Code with Pulumi",
+                "category": "DevOps",
+                "description": "Moving beyond YAML. Why using general-purpose programming languages for infrastructure management provides better abstraction.",
+                "content": [
+                    "The DevOps world reached \"YAML exhaustion\" in 2025. While declarative configuration served us well, the complexity of modern cloud systems often outgrew the capabilities of static text files.",
+                    "Infrastructure as Software (IaS) is the natural evolution. By using Pulumi with TypeScript or Python, we gain access to loops, conditionals, and standard software engineering practices like unit testing and IDE autocompletion.",
+                    "This isn't just about convenience. It allows for better abstraction. You can create true \"component resources\" that encapsulate complex multi-cloud architectures as a single class.",
+                    "Testing infrastructure has also been revolutionized. Instead of waiting for a 20-minute deployment to fail, we can now run policy-as-code checks and unit tests in milliseconds during the CI phase.",
+                    "The boundary between \"Application Developer\" and \"Infrastructure Engineer\" continues to blur."
+                ]
+            },
+            "clean-typescript": {
+                "title": "Clean Code in TypeScript: Beyond the Basics",
+                "category": "Programming",
+                "description": "Practical tips for writing maintainable TypeScript. Understanding advanced union types and composition.",
+                "content": [
+                    "Writing clean TypeScript isn't just about type-safety; it's about creating a living documentation of your system's intent.",
+                    "One of the most powerful patterns is Exhaustiveness Checking. By using discriminated unions and the `never` type, you can ensure that your system is resilient to future changes.",
+                    "Favoring Composition over Inheritance remains a cornerstone of good design. In TypeScript, this is easily achieved through functional patterns.",
+                    "Utility types like `Pick`, `Omit`, and `Partial` should be used sparingly but effectively.",
+                    "Remember: your types should describe what your data *is*, not just what it *looks like*."
+                ]
+            }
+        }
+    },
+    "Contact": {
+        "strings": [
+            "Let's Build Together",
+            "Ready to Collaborate?",
+            "Start Your Project"
+        ],
+        "description": "Ready to build something extraordinary? I'm always excited to discuss new projects, explore innovative solutions, and collaborate on challenging problems. Whether you need a full-stack application, mobile app, AI integration, or cloud infrastructure — let's make it happen.",
+        "footer": "Let's turn your vision into reality",
+        "form": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email Address",
+            "message": "Project Details & Message",
+            "placeholders": {
+                "firstName": "Alain",
+                "lastName": "Kwishima",
+                "email": "alain@example.com",
+                "message": "Describe your project ideas or just say hello..."
+            },
+            "submit": "Initiate Connection",
+            "sending": "Establishing Link...",
+            "success": "Mission Accomplished! Message received.",
+            "error": "Transmission Failure. Please try again."
+        }
+    }
+}

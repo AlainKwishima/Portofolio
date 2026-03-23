@@ -8,6 +8,9 @@ import { data } from '../constants'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
+import { Link } from '@/navigation'
+import { useTranslations } from 'next-intl'
+
 // Typing text effect
 type TypingTextProps = {
   text: string
@@ -53,9 +56,10 @@ export default TypingText
 
 // Hero section
 export function Hero() {
-  const { avatar, about, links } = data
+  const { avatar, links } = data
+  const t = useTranslations('Hero')
 
-  const cleanParagraph = about.description
+  const cleanDescription = t('description')
     .split('\n')
     .filter(Boolean)
     .map((line) => line.replace(/^[-•]\s*/, ''))
@@ -117,22 +121,20 @@ export function Hero() {
               className='font-mono font-bold text-xs px-3 py-1.5 rounded-full hover:scale-105 transition-all ease-in-out duration-300 shadow-md bg-gradient-to-r from-primary to-primary/80 text-white dark:text-white/90 border border-primary/30 hover:shadow-lg'
               asChild
             >
-              <a
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
                 className="hidden md:flex items-center gap-1.5"
               >
                 <span className="size-2 bg-green-400 rounded-full animate-pulse" />
-                Available
-              </a>
+                {t('status')}
+              </Link>
             </Button>
           </div>
 
           {/* Description with glass effect */}
           <div className="w-full flex flex-col font-mono gap-2.5 sm:gap-3 dark:text-neutral-200 text-neutral-800 text-pretty sm:backdrop-blur-sm sm:bg-white/30 sm:dark:bg-neutral-900/30 p-5 sm:p-6 md:p-8 sm:rounded-2xl sm:border sm:border-white/20 sm:dark:border-neutral-800/30 sm:shadow-xl">
-            <p className="font-semibold text-lg sm:text-lg md:text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">{about.title}</p>
-            <h3 className="text-base sm:text-base md:text-lg leading-relaxed opacity-90">{cleanParagraph}</h3>
+            <p className="font-semibold text-lg sm:text-lg md:text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">{t('role')}</p>
+            <h3 className="text-base sm:text-base md:text-lg leading-relaxed opacity-90">{cleanDescription}</h3>
           </div>
         </motion.div>
 

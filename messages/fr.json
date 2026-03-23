@@ -1,0 +1,191 @@
+{
+    "Common": {
+        "title": "Portfolio | ALAIN",
+        "nav": {
+            "home": "Accueil",
+            "career": "Carrière",
+            "projects": "Projets",
+            "skills": "Compétences",
+            "blog": "Blog",
+            "contact": "Contact"
+        }
+    },
+    "Hero": {
+        "title": "Alain Kwishima | Développeur Full-Stack & Ingénieur ML",
+        "role": "Développeur Full-Stack & Ingénieur DevOps | Création de solutions évolutives pour la croissance des entreprises",
+        "description": "Je conçois et construis des applications web robustes, des solutions mobiles et des systèmes intelligents qui résolvent des problèmes concrets. Avec une expertise couvrant le développement frontend, l'architecture backend, la création d'applications mobiles, l'intégration de l'IA et l'infrastructure cloud, je livre des solutions de bout en bout évolutives. Je me spécialise dans les technologies web modernes, le développement mobile multiplateforme, les applications d'apprentissage automatique et les pipelines DevOps automatisés. Ma passion consiste à créer un code efficace et maintenable et à mettre en œuvre des technologies de pointe qui améliorent les expériences utilisateur et les résultats commerciaux.",
+        "status": "Disponible",
+        "cta": "Voir mon travail"
+    },
+    "Career": {
+        "title": "Parcours Professionnel",
+        "items": {
+            "freelance": {
+                "title": "Développeur Full-Stack & Consultant Technique",
+                "description": [
+                    "Livré des solutions de bout en bout pour divers clients sur des projets de développement web, d'applications mobiles et d'intégration d'IA.",
+                    "Construit des applications web évolutives utilisant des frameworks modernes, notamment Next.js, React et Node.js avec TypeScript.",
+                    "Développé des applications mobiles et des API backend, mettant en œuvre une authentification sécurisée et une validation de données robuste.",
+                    "Créé des plateformes alimentées par l'IA et des outils d'automatisation, aidant les entreprises à rationaliser leurs opérations et à améliorer leur efficacité.",
+                    "Contribué à des projets open-source et maintenu une présence active sur GitHub avec plus de 50 référentiels et plus de 1000 contributions."
+                ]
+            },
+            "empirical": {
+                "title": "Ingénieur Principal Frontend",
+                "description": [
+                    "Dirigé les efforts de développement frontend pour une startup en pleine croissance, en créant des interfaces utilisateur réactives et performantes.",
+                    "Architecturé et mis en œuvre des bibliothèques de composants UI réutilisables utilisant TypeScript et des frameworks CSS modernes.",
+                    "Optimisé les performances des applications, atteignant des temps de chargement 40% plus rapides et de meilleurs indicateurs d'expérience utilisateur.",
+                    "Collaboré étroitement avec les équipes backend et produit pour livrer des solutions full-stack transparentes.",
+                    "Encadré des développeurs juniors et établi des normes de codage et des meilleures pratiques pour l'équipe d'ingénierie."
+                ]
+            },
+            "acgroup": {
+                "title": "Stagiaire en Développement Logiciel",
+                "description": [
+                    "Acquis une expérience pratique des défis réels du développement logiciel et des meilleures pratiques de l'industrie.",
+                    "Travaillé sur plusieurs projets couvrant le développement web, la conception de bases de données et l'intégration d'API.",
+                    "Acquis des bases solides en génie logiciel, en contrôle de version et en flux de travail de développement collaboratif.",
+                    "Participé à des revues de code, des procédures de test et des méthodologies de développement agile.",
+                    "Développé des compétences en résolution de problèmes et appris à travailler efficacement dans un environnement de développement professionnel."
+                ]
+            },
+            "rca": {
+                "title": "Candidat en Génie Logiciel",
+                "description": [
+                    "Sélectionné parmi les meilleurs 1% d'étudiants à l'échelle nationale pour un programme d'élite spécialisé en génie logiciel initié par le gouvernement du Rwanda.",
+                    "Accent intensif sur les stacks de développement logiciel modernes, incluant le développement web full-stack, l'automatisation DevOps et les systèmes embarqués.",
+                    "Construit des applications de qualité production dans le cadre du cursus, maîtrisant le développement collaboratif via Git et les méthodologies Agiles.",
+                    "Fort accent sur la résolution de problèmes, les algorithmes et les fondamentaux de la cybersécurité dans un environnement d'apprentissage par projet."
+                ]
+            }
+        }
+    },
+    "Projects": {
+        "title": "Projets Phares",
+        "searchPlaceholder": "Rechercher des projets...",
+        "noResults": "Recherche Système : 0 Résultats",
+        "reset": "Réinitialiser la base de données",
+        "fetching": "Récupération de l'intelligence...",
+        "items": {
+            "securetrade": {
+                "title": "SecureTrade",
+                "description": "Une application web sécurisée et moderne pour le trading d'actifs numériques avec un accent sur la confidentialité, la rapidité et la fiabilité. Comprend des données de marché en temps réel, une authentification sécurisée et une interface utilisateur intuitive conçue pour les débutants comme pour les traders expérimentés."
+            },
+            "tacticalcommand": {
+                "title": "Tactical Command Hub",
+                "description": "Une plateforme web de nouvelle génération conçue comme un système de contrôle de mission centralisé pour coordonner les opérations, gérer les ressources et surveiller les flux de renseignements en temps réel. Construite avec des technologies web modernes pour une visualisation et une gestion des données de haute performance."
+            },
+            "aihub": {
+                "title": "AI & Automation Hub",
+                "description": "Une plateforme complète pour découvrir des outils d'IA, maîtriser l'automatisation et rejoindre une communauté de bâtisseurs d'IA. Aide à créer des flux de travail intelligents, encourage l'apprentissage pratique et prend en charge le développement d'IA sans code et avancé avec des tutoriels interactifs et des exemples concrets."
+            },
+            "dovio": {
+                "title": "Dovio-Backend",
+                "description": "API backend robuste pour l'application mobile Durkheim construite avec Node.js et Express. Comprend une authentification JWT sécurisée, une validation complète des données avec Joi, un middleware de sécurité avec Helmet, le journalisme des requêtes avec Morgan et la gestion de la configuration de l'environnement."
+            },
+            "jobsportal": {
+                "title": "JobsPortal.Tech",
+                "description": "Un tableau d'offres d'emploi moderne et réactif construit avec Next.js, axé sur les rôles DevOps, SRE et Cloud. Propose un filtrage intelligent, une authentification utilisateur, un design élégant avec Tailwind CSS et une gestion robuste de la base de données avec l'ORM Prisma pour une expérience de recherche d'emploi et de candidature fluide."
+            }
+        }
+    },
+    "Skills": {
+        "title": "Stack d'Élite",
+        "subtitle": "Arsenal Technique",
+        "categories": {
+            "languages": "Langages",
+            "frontend": "Architecture Frontend",
+            "backend": "Backend & API",
+            "infrastructure": "Infrastructure & DevOps",
+            "databases": "Bases de Données & Auth",
+            "qa": "Assurance Qualité",
+            "ai": "IA & IoT",
+            "soft": "Soft Power"
+        }
+    },
+    "Blog": {
+        "title": "Flux d'Intelligence",
+        "subtitle": "Plongées profondes dans l'architecture logicielle moderne, les agents d'IA et la conception de produits haute fidélité.",
+        "readTime": "{time} min de lecture",
+        "readAbstract": "Lire l'extrait",
+        "cta": {
+            "title": "Vous voulez plus d'aperçus ?",
+            "subtitle": "\"La meilleure façon de prédire l'avenir est de l'automatiser.\"",
+            "button": "Suivre pour les mises à jour"
+        },
+        "modal": {
+            "discuss": "Discuter sur X",
+            "footer": "Vous avez trouvé cela intéressant ? Partagez vos pensées sur X."
+        },
+        "items": {
+            "ml2026": {
+                "title": "L'avenir de l'apprentissage automatique en 2026",
+                "category": "Apprentissage Automatique",
+                "description": "Explorer le passage des grands modèles de langage aux architectures agentiques spécialisées.",
+                "content": [
+                    "Alors que nous entrons en 2026, le paysage de l'Intelligence Artificielle subit un changement fondamental. Alors que 2023-2025 se sont concentrés sur la puissance brute des grands modèles de langage (LLM), l'ère actuelle est définie par l'Agence et l'Efficacité.",
+                    "Nous assistons à un abandon des \"chatbots\" au profit des \"agents\" — des systèmes qui ne se contentent pas de parler, mais agissent. Ces agents utilisent des modèles spécialisés, plus petits, qui sont affinés pour des tâches spécifiques comme la génération de code, l'architecture système ou le raisonnement logique.",
+                    "L'une des plus grandes percées a été l'IA en périphérie (Edge AI). Des modèles qui nécessitaient autrefois d'énormes grappes de GPU peuvent désormais s'exécuter localement sur des puces NPU (Neural Processing Unit) spécialisées.",
+                    "Pour les développeurs, cela signifie que l'accent se déplace de l'ingénierie de prompt vers l'orchestration agentique — concevoir des systèmes où plusieurs modèles spécialisés coopèrent.",
+                    "L'accent n'est plus seulement sur ce que l'IA peut dire, mais sur ce qu'elle peut faire de manière efficace et éthique dans nos flux de travail quotidiens."
+                ]
+            },
+            "devops-pulumi": {
+                "title": "DevOps Moderne : L'Infrastructure as Code avec Pulumi",
+                "category": "DevOps",
+                "description": "Aller au-delà du YAML. Pourquoi l'utilisation de langages de programmation généralistes pour la gestion des infrastructures offre de meilleures abstractions.",
+                "content": [
+                    "Le monde du DevOps a atteint l'\"épuisement YAML\" en 2025. Bien que la configuration déclarative nous ait bien servis, la complexité des systèmes cloud modernes a souvent dépassé les capacités des fichiers texte statiques.",
+                    "L'infrastructure en tant que logiciel (IaS) est l'évolution naturelle. En utilisant Pulumi avec TypeScript ou Python, nous accédons aux boucles, aux conditions et aux pratiques standard du génie logiciel.",
+                    "Il ne s'agit pas seulement de commodité. Cela permet une meilleure abstraction. Vous pouvez créer de véritables \"ressources de composants\" qui encapsulent des architectures multi-cloud complexes.",
+                    "Les tests d'infrastructure ont également été révolutionnés. Au lieu d'attendre 20 minutes qu'un déploiement échoue, nous pouvons désormais exécuter des vérifications de politique en tant code.",
+                    "La frontière entre \"Développeur d'Applications\" et \"Ingénieur d'Infrastructure\" continue de s'estomper."
+                ]
+            },
+            "clean-typescript": {
+                "title": "Clean Code en TypeScript : Au-delà des bases",
+                "category": "Programmation",
+                "description": "Conseils pratiques pour écrire du TypeScript maintenable. Comprendre les types d'union avancés et la composition.",
+                "content": [
+                    "Écrire du TypeScript propre n'est pas seulement une question de sécurité de type ; il s'agit de créer une documentation vivante de l'intention de votre système.",
+                    "L'un des modèles les plus puissants est la vérification de l'exhaustivité. En utilisant des unions discriminées et le type `never`, vous pouvez vous assurer que votre système est résilient aux changements futurs.",
+                    "Favoriser la Composition plutôt que l'Héritage reste une pierre angulaire d'une bonne conception. En TypeScript, cela s'obtient facilement via des modèles fonctionnels.",
+                    "Les types utilitaires comme `Pick`, `Omit` et `Partial` doivent être utilisés avec parcimonie mais efficacité.",
+                    "N'oubliez pas : vos types doivent décrire ce que vos données *sont*, pas seulement ce à quoi elles *ressemblent*."
+                ]
+            }
+        },
+        "categories": {
+            "ml": "Apprentissage Automatique",
+            "devops": "DevOps",
+            "programming": "Programmation",
+            "design": "Design"
+        }
+    },
+    "Contact": {
+        "strings": [
+            "Bâtissons ensemble",
+            "Prêt à collaborer ?",
+            "Commencez votre projet"
+        ],
+        "description": "Prêt à construire quelque chose d'extraordinaire ? Je suis toujours ravi de discuter de nouveaux projets, d'explorer des solutions innovantes et de collaborer sur des problèmes stimulants. Que vous ayez besoin d'une application full-stack, d'une application mobile, d'une intégration d'IA ou d'une infrastructure cloud — concrétisons-le.",
+        "footer": "Transformons votre vision en réalité",
+        "form": {
+            "firstName": "Prénom",
+            "lastName": "Nom",
+            "email": "Adresse Email",
+            "message": "Détails du projet & Message",
+            "placeholders": {
+                "firstName": "Alain",
+                "lastName": "Kwishima",
+                "email": "alain@exemple.com",
+                "message": "Décrivez les idées de votre projet ou dites simplement bonjour..."
+            },
+            "submit": "Initier la connexion",
+            "sending": "Établissement du lien...",
+            "success": "Mission accomplie ! Message reçu.",
+            "error": "Échec de la transmission. Veuillez réessayer."
+        }
+    }
+}

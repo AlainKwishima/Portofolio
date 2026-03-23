@@ -7,7 +7,11 @@ import { ArrowRightIcon } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
 import { type CareerProps } from '@/types'
 
-export function CareerItem({ link, company, jobs, badges }: CareerProps) {
+import { useTranslations } from 'next-intl'
+
+export function CareerItem({ link, company, jobs, badges, slug }: CareerProps) {
+  const t = useTranslations(`Career.items.${slug}`)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -62,7 +66,7 @@ export function CareerItem({ link, company, jobs, badges }: CareerProps) {
           <div key={index} className="mb-5">
             <h4 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
               <TypeAnimation
-                sequence={[job.title, 5000, '']}
+                sequence={[t('title'), 5000, '']}
                 speed={40}
                 repeat={Infinity}
                 cursor={true}
@@ -73,7 +77,7 @@ export function CareerItem({ link, company, jobs, badges }: CareerProps) {
               {job.start} — {job.end}
             </time>
             <ul className="mt-1 text-sm font-mono text-neutral-700 dark:text-neutral-300 space-y-1 pl-4 list-disc">
-              {job.description.map((item, i) => (
+              {t.raw('description').map((item: string, i: number) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>

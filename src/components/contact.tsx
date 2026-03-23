@@ -6,11 +6,14 @@ import { MailIcon, ArrowRight } from 'lucide-react'
 import { motion, useInView, useAnimation } from 'framer-motion'
 import Typed from 'typed.js'
 
+import { useTranslations } from 'next-intl'
+
 export function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const controls = useAnimation()
   const typedRef = useRef<HTMLSpanElement | null>(null)
+  const t = useTranslations('Contact')
 
   useEffect(() => {
     if (isInView) {
@@ -20,7 +23,7 @@ export function Contact() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ['Let\'s Build Together', 'Ready to Collaborate?', 'Start Your Project'],
+      strings: t.raw('strings'),
       typeSpeed: 50,
       backSpeed: 30,
       backDelay: 2000,
@@ -30,7 +33,7 @@ export function Contact() {
     return () => {
       typed.destroy()
     }
-  }, [])
+  }, [t])
 
   return (
     <motion.section
@@ -57,7 +60,7 @@ export function Contact() {
         </motion.div>
 
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-balance bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold text-balance bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent min-h-[1.5em]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -71,9 +74,7 @@ export function Contact() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          Ready to build something extraordinary? I'm always excited to discuss new projects, 
-          explore innovative solutions, and collaborate on challenging problems. Whether you need 
-          a full-stack application, mobile app, AI integration, or cloud infrastructure — let's make it happen.
+          {t('description')}
         </motion.p>
 
         <motion.div
@@ -82,7 +83,7 @@ export function Contact() {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="flex items-center justify-center gap-2 text-sm text-neutral-500 dark:text-neutral-400"
         >
-          <span>Let's turn your vision into reality</span>
+          <span>{t('footer')}</span>
           <ArrowRight className="size-4 animate-pulse" />
         </motion.div>
       </motion.div>

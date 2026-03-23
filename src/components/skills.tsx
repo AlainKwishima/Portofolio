@@ -6,41 +6,44 @@ import { Badge } from './ui/badge'
 import { TypeAnimation } from 'react-type-animation'
 import { SparklesIcon } from 'lucide-react'
 
+import { useTranslations } from 'next-intl'
+
 export function Skills() {
     const { tags } = data
+    const t = useTranslations('Skills')
 
     // Manually group the exhaustive list of tags for better UI
     const categorizedSkills = [
         {
-            category: 'Languages',
+            category: t('categories.languages'),
             skills: [tags.TYPESCRIPT, tags.JAVASCRIPT, tags.PYTHON, tags.PHP, tags.SQL, tags.BASH]
         },
         {
-            category: 'Frontend Architecture',
+            category: t('categories.frontend'),
             skills: [tags.NEXTJS, tags.REACT, tags.VUE, tags.NUXT, tags.HTML5, tags.CSS3, tags.TAILWIND, tags.SHADCN]
         },
         {
-            category: 'Backend & APIs',
+            category: t('categories.backend'),
             skills: [tags.NODEJS, tags.EXPRESS, tags.NESTJS, tags.LARAVEL, tags.REST_API, tags.TRPC]
         },
         {
-            category: 'Infrastructure & DevOps',
+            category: t('categories.infrastructure'),
             skills: [tags.DOCKER, tags.KUBERNETES, tags.GITHUB_ACTIONS, tags.JENKINS, tags.ANSIBLE, tags.TERRAFORM, tags.LINUX, tags.GIT, tags.VERCEL, tags.NGINX]
         },
         {
-            category: 'Databases & Auth',
+            category: t('categories.databases'),
             skills: [tags.POSTGRESQL, tags.MYSQL, tags.SQLITE, tags.MONGODB, tags.REDIS, tags.JWT, tags.OAUTH2]
         },
         {
-            category: 'Quality Assurance',
+            category: t('categories.qa'),
             skills: [tags.JEST, tags.VITEST, tags.CYPRESS, tags.PLAYWRIGHT]
         },
         {
-            category: 'AI & IoT',
+            category: t('categories.ai'),
             skills: [tags.NUMPY, tags.PANDAS, tags.SCIKIT_LEARN, tags.TENSORFLOW, tags.ARDUINO, tags.ESP32]
         },
         {
-            category: 'Soft Power',
+            category: t('categories.soft'),
             skills: [tags.COMMUNICATION, tags.TEAMWORK, tags.LEADERSHIP, tags.PROBLEM_SOLVING, tags.DOCUMENTATION]
         }
     ]
@@ -71,7 +74,7 @@ export function Skills() {
                 <div className="flex items-center gap-x-4 justify-center md:justify-start">
                     <SparklesIcon className="size-8 animate-pulse text-primary" />
                     <TypeAnimation
-                        sequence={['Elite Stack', 5000, 'Technical Arsenal', 5000]}
+                        sequence={[t('title'), 5000, t('subtitle'), 5000]}
                         wrapper="h2"
                         cursor={true}
                         repeat={Infinity}

@@ -8,9 +8,12 @@ import { CalendarIcon, ClockIcon, ArrowRightIcon, XIcon, UserIcon } from 'lucide
 import { Button } from './ui/button'
 import type { BlogPost } from '@/types'
 
+import { useTranslations } from 'next-intl'
+
 export function Blog() {
     const { blog } = data
     const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null)
+    const t = useTranslations('Blog')
 
     return (
         <motion.section
@@ -21,64 +24,75 @@ export function Blog() {
         >
             <div className="text-center space-y-4">
                 <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-                    Intelligence Log
+                    {t('title')}
                 </h1>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    Deep dives into modern software architecture, AI agents, and high-fidelity product design.
+                    {t('subtitle')}
                 </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blog.map((post, index) => (
-                    <motion.div
-                        key={post.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1, duration: 0.5 }}
-                        whileHover={{ y: -5 }}
-                        className="group relative flex flex-col p-6 rounded-[2rem] bg-white/5 dark:bg-black/20 border border-border/40 backdrop-blur-xl shadow-xl hover:shadow-primary/5 transition-all"
-                    >
-                        {/* Category / Badge */}
-                        <div className="flex items-center justify-between mb-6">
-                            <Badge variant="secondary" className="rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest bg-primary/10 text-primary border-primary/20">
-                                {post.category}
-                            </Badge>
-                            <div className="flex items-center gap-2 text-muted-foreground/60 text-xs font-mono">
-                                <ClockIcon className="size-3" />
-                                {post.readTime}
+                {blog.map((post, index) => {
+                    const slug = post.slug || '';
+                    const hasTranslation = t.has(`items.${slug}`);
+                    const localizedTitle = hasTranslation ? t(`items.${slug}.title`) : post.title;
+                    const localizedDescription = hasTranslation ? t(`items.${slug}.description`) : post.description;
+                    const localizedCategory = hasTranslation ? t(`items.${slug}.category`) : post.category;
+                    const readTimeNum = post.readTime?.split(' ')[0] || '1';
+
+                    return (
+                        <motion.div
+                            key={post.title}
+                            layoutId={post.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                            whileHover={{ y: -5 }}
+                            className="group relative flex flex-col p-6 rounded-[2rem] bg-white/5 dark:bg-black/20 border border-border/40 backdrop-blur-xl shadow-xl hover:shadow-primary/5 transition-all"
+                        >
+                            {/* ... */}
+                            {/* Category / Badge */}
+                            <div className="flex items-center justify-between mb-6">
+                                <Badge variant="secondary" className="rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest bg-primary/10 text-primary border-primary/20">
+                                    {localizedCategory}
+                                </Badge>
+                                <div className="flex items-center gap-2 text-muted-foreground/60 text-xs font-mono">
+                                    <ClockIcon className="size-3" />
+                                    {t('readTime', { time: readTimeNum })}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Title */}
-                        <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
-                            {post.title}
-                        </h2>
+                            {/* Title */}
+                            <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
+                                {localizedTitle}
+                            </h2>
 
-                        {/* Description */}
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
-                            {post.description}
-                        </p>
+                            {/* Description */}
+                            <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
+                                {localizedDescription}
+                            </p>
 
-                        {/* Footer */}
-                        <div className="flex items-center justify-between pt-6 border-t border-border/20">
-                            <div className="flex items-center gap-2 text-muted-foreground/60 text-xs font-medium">
-                                <CalendarIcon className="size-3" />
-                                {post.date}
+                            {/* Footer */}
+                            <div className="flex items-center justify-between pt-6 border-t border-border/20">
+                                <div className="flex items-center gap-2 text-muted-foreground/60 text-xs font-medium">
+                                    <CalendarIcon className="size-3" />
+                                    {post.date}
+                                </div>
+                                <Button
+                                    variant="link"
+                                    size="sm"
+                                    className="p-0 h-auto group/btn text-primary/80 hover:text-primary font-bold"
+                                    onClick={() => setSelectedPost(post)}
+                                >
+                                    {t('readAbstract')} <ArrowRightIcon className="ml-2 size-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                                </Button>
                             </div>
-                            <Button
-                                variant="link"
-                                size="sm"
-                                className="p-0 h-auto group/btn text-primary/80 hover:text-primary font-bold"
-                                onClick={() => setSelectedPost(post)}
-                            >
-                                Read Abstract <ArrowRightIcon className="ml-2 size-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                            </Button>
-                        </div>
 
-                        {/* Hover Glow Effect */}
-                        <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                    </motion.div>
-                ))}
+                            {/* Hover Glow Effect */}
+                            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                        </motion.div>
+                    )
+                })}
             </div>
 
             {/* Newsletter / CTA */}
@@ -88,15 +102,15 @@ export function Blog() {
                 transition={{ delay: 0.5 }}
                 className="p-10 rounded-[2.5rem] bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-md text-center space-y-6 mt-16"
             >
-                <h3 className="text-2xl font-bold">Want more insights?</h3>
-                <p className="text-muted-foreground max-w-md mx-auto italic">"The best way to predict the future is to automate it."</p>
+                <h3 className="text-2xl font-bold">{t('cta.title')}</h3>
+                <p className="text-muted-foreground max-w-md mx-auto italic">{t('cta.subtitle')}</p>
                 <Button
                     variant="default"
                     className="rounded-2xl px-10 py-6 text-base font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform active:scale-95"
                     asChild
                 >
                     <a href="https://x.com/AlainKwishima" target="_blank" rel="noopener noreferrer">
-                        Follow for Updates
+                        {t('cta.button')}
                     </a>
                 </Button>
             </motion.div>
@@ -121,7 +135,7 @@ export function Blog() {
                         >
                             <div className="sticky top-0 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md p-6 flex items-center justify-between border-b border-border/20 z-20">
                                 <Badge variant="outline" className="rounded-full px-4 text-xs font-bold uppercase tracking-wider text-primary border-primary/30">
-                                    {selectedPost.category}
+                                    {(selectedPost.slug && t.has(`items.${selectedPost.slug}.category`)) ? t(`items.${selectedPost.slug}.category`) : selectedPost.category}
                                 </Badge>
                                 <button
                                     onClick={() => setSelectedPost(null)}
@@ -134,17 +148,17 @@ export function Blog() {
                             <div className="p-8 sm:p-12 space-y-8">
                                 <div className="space-y-4">
                                     <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.1]">
-                                        {selectedPost.title}
+                                        {(selectedPost.slug && t.has(`items.${selectedPost.slug}.title`)) ? t(`items.${selectedPost.slug}.title`) : selectedPost.title}
                                     </h2>
                                     <div className="flex items-center gap-6 text-muted-foreground font-mono text-[10px] uppercase tracking-widest pt-2">
                                         <span className="flex items-center gap-2"><CalendarIcon className="size-3" /> {selectedPost.date}</span>
-                                        <span className="flex items-center gap-2"><ClockIcon className="size-3" /> {selectedPost.readTime}</span>
+                                        <span className="flex items-center gap-2"><ClockIcon className="size-3" /> {t('readTime', { time: selectedPost.readTime.split(' ')[0] || '1' })}</span>
                                         <span className="flex items-center gap-2"><UserIcon className="size-3" /> Alain Kwishima</span>
                                     </div>
                                 </div>
 
                                 <div className="space-y-6">
-                                    {selectedPost.content.map((paragraph, i) => (
+                                    {((selectedPost.slug && t.has(`items.${selectedPost.slug}.content`)) ? t.raw(`items.${selectedPost.slug}.content`) : selectedPost.content).map((paragraph: string, i: number) => (
                                         <p key={i} className="text-lg leading-relaxed text-foreground/80 first-letter:text-4xl first-letter:font-bold first-letter:text-primary first-letter:mr-1 first-letter:float-left">
                                             {paragraph}
                                         </p>
@@ -152,10 +166,10 @@ export function Blog() {
                                 </div>
 
                                 <div className="pt-10 border-t border-border/20 text-center">
-                                    <p className="text-sm text-muted-foreground mb-6">Found this insightful? Share your thoughts on X.</p>
+                                    <p className="text-sm text-muted-foreground mb-6">{t('modal.footer')}</p>
                                     <Button variant="outline" className="rounded-xl px-8" asChild>
                                         <a href="https://x.com/AlainKwishima" target="_blank" rel="noopener noreferrer">
-                                            Discuss on X
+                                            {t('modal.discuss')}
                                         </a>
                                     </Button>
                                 </div>

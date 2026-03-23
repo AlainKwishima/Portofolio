@@ -16,11 +16,28 @@ const LANGUAGE_MAP: Record<string, TagsProps> = {
     Java: { name: 'Java', icon: GithubIcon },
 }
 
+interface GithubRepo {
+    name: string
+    description: string | null
+    language: string | null
+    topics?: string[]
+    html_url: string
+    homepage: string | null
+    pushed_at: string | null
+    updated_at: string | null
+    created_at: string | null
+    fork: boolean
+    archived: boolean
+}
+
 export async function fetchGithubProjects(): Promise<ProjectProps[]> {
     try {
         const response = await fetch(
             `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`,
             {
+                headers: {
+                    Accept: 'application/vnd.github+json'
+                },
                 next: { revalidate: 3600 } // Cache for 1 hour
             }
         )
@@ -29,11 +46,11 @@ export async function fetchGithubProjects(): Promise<ProjectProps[]> {
             throw new Error('Failed to fetch GitHub repositories')
         }
 
-        const repos = await response.json()
+        const repos = (await response.json()) as GithubRepo[]
 
         return repos
-            .filter((repo: any) => !repo.fork && !repo.archived) // Filter out forks and archived repos
-            .map((repo: any) => {
+            .filter((repo) => !repo.fork && !repo.archived) // Filter out forks and archived repos
+            .map((repo) => {
                 const tags: TagsProps[] = []
 
                 // Add primary language
@@ -71,7 +88,9 @@ export async function fetchGithubProjects(): Promise<ProjectProps[]> {
                     link: {
                         github: repo.html_url,
                         preview: repo.homepage || undefined
-                    }
+                    },
+                    lastUpdated:
+                        repo.pushed_at ?? repo.updated_at ?? repo.created_at ?? undefined
                 }
             })
     } catch (error) {

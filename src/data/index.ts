@@ -268,6 +268,7 @@ const CERTIFICATIONS = [
 
 const BLOG_POSTS = [
   {
+    slug: 'ml2026',
     title: 'The Future of Machine Learning in 2026',
     date: 'Jan 24, 2026',
     category: 'Machine Learning',
@@ -282,6 +283,7 @@ const BLOG_POSTS = [
     ]
   },
   {
+    slug: 'devops-pulumi',
     title: 'Modern DevOps: Infrastructure as Code with Pulumi',
     date: 'Jan 20, 2026',
     category: 'DevOps',
@@ -296,6 +298,7 @@ const BLOG_POSTS = [
     ]
   },
   {
+    slug: 'clean-typescript',
     title: 'Clean Code in TypeScript: Beyond the Basics',
     date: 'Jan 15, 2026',
     category: 'Programming',
@@ -310,6 +313,7 @@ const BLOG_POSTS = [
     ]
   },
   {
+    slug: 'ui-hierarchy',
     title: 'Visual Hierarchy in UI Design',
     date: 'Jan 10, 2026',
     category: 'Design',
@@ -324,6 +328,7 @@ const BLOG_POSTS = [
     ]
   },
   {
+    slug: 'devsecops',
     title: 'Automating Security with DevSecOps Pipelines',
     date: 'Jan 05, 2026',
     category: 'DevOps',
@@ -341,6 +346,7 @@ const BLOG_POSTS = [
 
 const PROJECTS = [
   {
+    slug: 'securetrade',
     title: 'SecureTrade',
     tags: [TAGS.TYPESCRIPT, TAGS.CSS3, TAGS.JAVASCRIPT],
     description: 'A secure, modern web application for trading digital assets with a focus on privacy, speed, and reliability. Features real-time market data, secure authentication, and intuitive user interface designed for both beginners and experienced traders.',
@@ -350,6 +356,7 @@ const PROJECTS = [
     },
   },
   {
+    slug: 'tacticalcommand',
     title: 'Tactical Command Hub',
     tags: [TAGS.TYPESCRIPT, TAGS.CSS3, TAGS.JAVASCRIPT],
     description: 'A next-generation web platform designed as a centralized mission control system for coordinating operations, managing resources, and monitoring intelligence workflows in real-time. Built with modern web technologies for high-performance data visualization and management.',
@@ -358,6 +365,7 @@ const PROJECTS = [
     },
   },
   {
+    slug: 'aihub',
     title: 'AI & Automation Hub',
     tags: [TAGS.TYPESCRIPT, TAGS.CSS3, TAGS.JAVASCRIPT],
     description: 'A comprehensive platform for discovering AI tools, mastering automation, and joining a community of AI builders. Helps create intelligent workflows, encourages hands-on learning, and supports both no-code and advanced AI development with interactive tutorials and real-world examples.',
@@ -367,6 +375,7 @@ const PROJECTS = [
     },
   },
   {
+    slug: 'dovio',
     title: 'Dovio-Backend',
     tags: [TAGS.NODEJS, TAGS.JAVASCRIPT, TAGS.EXPRESS, TAGS.MONGODB, TAGS.JWT, TAGS.JOI, TAGS.MORGAN, TAGS.HELMET, TAGS.DOTENV],
     description: 'Robust backend API for the Durkheim mobile application built with Node.js and Express. Features secure JWT authentication, comprehensive data validation with Joi, security middleware with Helmet, request logging with Morgan, and environment configuration management.',
@@ -375,6 +384,7 @@ const PROJECTS = [
     },
   },
   {
+    slug: 'jobsportal',
     title: 'JobsPortal.Tech',
     tags: [TAGS.TYPESCRIPT, TAGS.NEXTJS, TAGS.TAILWIND, TAGS.PRISMA, TAGS.CSS3, TAGS.JAVASCRIPT],
     description: 'A modern, responsive job board built with Next.js focusing on DevOps, SRE, and Cloud roles. Features smart filtering, user authentication, elegant UI design with Tailwind CSS, and robust database management with Prisma ORM for seamless job search and application experience.',

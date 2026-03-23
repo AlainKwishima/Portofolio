@@ -8,34 +8,110 @@ import { ProjectPagination } from './project-pagination'
 import { TerminalIcon, SearchIcon, XIcon, Loader2Icon } from 'lucide-react'
 import { data } from '@/constants'
 import { TypeAnimation } from 'react-type-animation'
+import { useTranslations } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Input } from './ui/input'
 import { fetchGithubProjects } from '@/lib/github'
 import type { ProjectProps } from '@/types'
+
+function normalizeGithubUrl(url?: string) {
+  if (!url) {
+    return undefined
+  }
+
+  try {
+    const parsedUrl = new URL(url)
+    const normalizedPath = parsedUrl.pathname
+      .replace(/\.git$/i, '')
+      .replace(/\/$/, '')
+      .toLowerCase()
+    return `https://github.com${normalizedPath}`
+  } catch {
+    return url
+      .trim()
+      .replace(/\.git$/i, '')
+      .replace(/\/$/, '')
+      .toLowerCase()
+  }
+}
+
+function toTimestamp(date?: string) {
+  if (!date) {
+    return 0
+  }
+  const parsedDate = Date.parse(date)
+  return Number.isNaN(parsedDate) ? 0 : parsedDate
+}
 
 export function Projects() {
   const { projects: featuredProjects } = data
   const [searchQuery, setSearchQuery] = useState('')
   const [allProjects, setAllProjects] = useState<ProjectProps[]>(featuredProjects)
   const [isLoading, setIsLoading] = useState(true)
+  const t = useTranslations('Projects')
 
   useEffect(() => {
     async function loadProjects() {
       setIsLoading(true)
       const githubRepos = await fetchGithubProjects()
 
-      // Filter out duplicates (if any featured projects are also in github)
-      const githubOnly = githubRepos.filter(
-        (repo) => !featuredProjects.some((fp) => fp.title.toLowerCase() === repo.title.toLowerCase())
+      const githubByUrl = new Map<string, ProjectProps>()
+      for (const repo of githubRepos) {
+        const repoUrl = normalizeGithubUrl(repo.link.github)
+        if (repoUrl) {
+          githubByUrl.set(repoUrl, repo)
+        }
+      }
+
+      const featuredWithActivity = featuredProjects.map((project) => {
+        const projectUrl = normalizeGithubUrl(project.link.github)
+        if (!projectUrl) {
+          return project
+        }
+
+        const githubMatch = githubByUrl.get(projectUrl)
+        if (!githubMatch) {
+          return project
+        }
+
+        return {
+          ...project,
+          lastUpdated: githubMatch.lastUpdated ?? project.lastUpdated
+        }
+      })
+
+      const featuredUrls = new Set(
+        featuredWithActivity
+          .map((project) => normalizeGithubUrl(project.link.github))
+          .filter((url): url is string => Boolean(url))
       )
 
-      setAllProjects([...featuredProjects, ...githubOnly])
+      // Filter out duplicates (if any featured projects are also in github)
+      const githubOnly = githubRepos.filter(
+        (repo) => {
+          const repoUrl = normalizeGithubUrl(repo.link.github)
+          if (repoUrl && featuredUrls.has(repoUrl)) {
+            return false
+          }
+
+          return !featuredWithActivity.some(
+            (fp) => fp.title.toLowerCase() === repo.title.toLowerCase()
+          )
+        }
+      )
+
+      const newestFirst = [...featuredWithActivity, ...githubOnly].sort(
+        (a, b) => toTimestamp(b.lastUpdated) - toTimestamp(a.lastUpdated)
+      )
+
+      setAllProjects(newestFirst)
       setIsLoading(false)
     }
     loadProjects()
   }, [featuredProjects])
 
   const filteredProjects = useMemo(() => {
+    // Note: Search still works on the original title/description for now
     return allProjects.filter((project) =>
       project.title.toLowerCase().includes(searchQuery.toLowerCase())
     )
@@ -69,7 +145,7 @@ export function Projects() {
         >
           <TerminalIcon className='size-7 animate-pulse stroke-[1.5] text-primary' />
           <TypeAnimation
-            sequence={['Featured Projects', 5000, '',]}
+            sequence={[t('title'), 5000, '',]}
             wrapper='h2'
             cursor={true}
             repeat={Infinity}
@@ -86,7 +162,7 @@ export function Projects() {
         >
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
           <Input
-            placeholder="Search projects..."
+            placeholder={t('searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-10 pr-10 py-5 bg-white/50 dark:bg-black/20 backdrop-blur-sm border-border/50 focus:border-primary/50 focus:ring-primary/20 transition-all rounded-xl"
@@ -114,7 +190,7 @@ export function Projects() {
             <TerminalIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-6 text-primary animate-pulse" />
           </div>
           <div className="text-center space-y-2">
-            <p className="font-mono text-sm font-bold tracking-widest uppercase text-primary/60">Fetching Intelligence</p>
+            <p className="font-mono text-sm font-bold tracking-widest uppercase text-primary/60">{t('fetching')}</p>
             <p className="text-muted-foreground text-xs animate-pulse">Syncing with GitHub repositories...</p>
           </div>
         </div>
@@ -128,7 +204,7 @@ export function Projects() {
             <SearchIcon className="size-12 text-primary/40" />
           </div>
           <div className="text-center space-y-3">
-            <h3 className="text-2xl font-bold tracking-tight">System Search: 0 Results</h3>
+            <h3 className="text-2xl font-bold tracking-tight">{t('noResults')}</h3>
             <p className="text-muted-foreground max-w-sm mx-auto leading-relaxed">No projects matched your current search parameters. You might want to try different keywords or reset the filter.</p>
           </div>
           <Button
@@ -137,7 +213,7 @@ export function Projects() {
             onClick={() => setSearchQuery('')}
             className="rounded-2xl px-8 border-primary/20 hover:bg-primary/5 transition-all active:scale-95"
           >
-            Reset Search Database
+            {t('reset')}
           </Button>
         </motion.div>
       ) : (

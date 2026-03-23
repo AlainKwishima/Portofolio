@@ -4,10 +4,15 @@ import { CareerItem } from './career-item'
 import { FileTextIcon } from 'lucide-react'
 import { data } from '@/constants'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { TypeAnimation } from 'react-type-animation'
 
 export function Career() {
   const { career } = data
+  const t = useTranslations('Career')
+
+  // Map career items to translation keys
+  const careerSlugs = ['freelance', 'empirical', 'acgroup', 'rca']
 
   return (
     <motion.section
@@ -26,7 +31,7 @@ export function Career() {
       >
         <FileTextIcon className='size-7 animate-pulse stroke-[1.5] text-primary' />
         <TypeAnimation
-          sequence={['Professional Journey', 5000, '']}
+          sequence={[t('title'), 5000, '']}
           speed={50}
           repeat={Infinity}
           cursor={true}
@@ -45,7 +50,7 @@ export function Career() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true, amount: 0.6 }}
           >
-            <CareerItem {...item} />
+            <CareerItem {...item} slug={careerSlugs[index]} />
           </motion.li>
         ))}
       </ol>
