@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  'https://portofolio-rose-phi-57.vercel.app'
+
 export const metadata: Metadata = {
   title: 'Alain Kwishima | Full-Stack Developer & ML Engineer',
   description: 'Experienced full-stack developer and ML engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure. Building scalable solutions that drive business growth.',
@@ -12,14 +16,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://alain-kwishima.vercel.app'),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Alain Kwishima | Full-Stack Developer & ML Engineer',
     description: 'Experienced full-stack developer and ML engineer specializing in web applications, mobile development, AI integration, and cloud infrastructure. Building scalable solutions that drive business growth.',
-    url: 'https://alain-kwishima.vercel.app',
+    url: siteUrl,
     siteName: 'Alain Kwishima Portfolio',
     images: [
       {
